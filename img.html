@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .imgcon {
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            border: 1px solid black;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .img1 {
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+            object-fit: contain;
+
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="imgcon">
+            <img src="img/1.jpg" alt="" class="img1">
+        </div>
+    </section>
+
+    <script>
+        const theImg = document.querySelector('.img1');
+        theImg.addEventListener('mouseover', () => {
+            theImg.style.opacity = '1';
+        })
+        theImg.addEventListener('mouseout', () => {
+            theImg.style.opacity = '0.3';
+        })
+        theImg.addEventListener('click', () => {
+            theImg.src = 'img/2.jpg';
+        })
+    </script>
+</body>
+
+</html>

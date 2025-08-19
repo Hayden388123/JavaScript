@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <label for="">台幣</label>
+    <input type="number" placeholder="請輸入台幣" id="TWD">
+    <label for="">美金</label>
+    <input type="number" placeholder="請輸入美金" id="USD">
+
+    <script>
+        const TWD = document.querySelector('#TWD');
+        const USD = document.querySelector('#USD');
+        const exchangeRate = 30.07;
+
+        TWD.addEventListener('input', () => {
+            const twd = TWD.value;
+            USD.value = (twd / exchangeRate).toFixed(2);
+        })
+        USD.addEventListener('input', () => {
+            const usd = USD.value;
+            TWD.value = (usd * exchangeRate).toFixed(0);
+        })
+
+    </script>
+</body>
+
+</html>

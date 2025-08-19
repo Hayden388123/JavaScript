@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="div1">
+    </div>
+    <label for="inputname">姓名:</label>
+    <input type="text" id="inputname" value="guest">
+    <input type="button" id="btnClick" value="click">
+    <div class="div2"></div>
+
+    <script>
+        // window.alert('Hello!!!');
+        const myDiv = document.querySelector('.div1');
+        console.log(myDiv);
+        // myDiv.textContent = 'Hello JavaScrpit';
+        myDiv.innerHTML = '<h2>Hello JavaScript</h2>';
+
+        // 資料輸入
+        // const username = window.prompt('請輸入姓名:', 'guest');
+        // console.log(username);
+        // const age = window.prompt('請輸入年紀:', 'age');
+        // console.log(age);
+
+        const inpname = document.querySelector('#inputname');
+        const div2 = document.querySelector('.div2');
+        const btnClick = document.querySelector('#btnClick');
+        inpname.addEventListener('click', () => {
+            inpname.style.backgroundColor = 'lightblue';
+            inpname.style.borderRadius = '3rem';
+        })
+        btnClick.addEventListener('click', () => {
+            div2.textContent = inputname.value;
+            inpname.value = '';
+            inpname.style.backgroundColor = '';
+            inpname.style.borderRadius = '';
+        })
+
+
+    </script>
+
+    <!-- <script src="scripts/hello.js"></script> -->
+</body>
+
+</html>

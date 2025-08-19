@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // escape sequence跳脫序列
+        let name = 'Hayden\'s house';
+        let add = 'C:\\Users\\User\\Documents\\javascript'
+        let country = 'Taiwan'
+        console.log(name);
+        console.log(add);
+
+        // Template literals樣板字面值
+        console.log(`${name} is in ${country}.`)
+
+        // 陣列
+        const sexaul = ['top', 'bottom', 'switch'];
+        console.log(sexaul[2]);
+
+        // 物件
+        const character = { 'username': 'Jessie', 'age': 28, 'gender': 'female', 'hometown': 'America' };
+        console.log(character.age);
+        console.log(character['hometown']);
+
+        // 解構賦值
+        // 解構陣列
+        const [s1, s2, s3] = sexaul;
+        console.log(s2);
+        // 解構物件
+        const { username, age, gender, hometown } = character;
+        console.log(username);
+        console.log(gender);
+
+        // 兩個數字相加
+        const year = window.prompt('請輸入1911', 1911);
+        const twyear = window.prompt('請輸入民國出生年份', 0);
+        console.log(Number(year) + Number(twyear));
+
+        // 兩個數字交換
+        let x = 10;
+        let y = 20;
+        console.log(String(y), String(x));
+    </script>
+</body>
+
+</html>
