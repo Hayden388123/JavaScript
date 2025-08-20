@@ -6,15 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        .exchange,
+        .temperature {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            background-color: rgb(111, 170, 111);
+            margin-bottom: 2rem;
+            padding: .75rem;
+            border-radius: 1rem;
+        }
 
+        label {
+            margin-bottom: .5rem;
+        }
+
+        #TWD,
+        #USD,
+        #C,
+        #F {
+            margin-bottom: 1rem;
+            height: 1.5rem;
+            border-radius: 1rem;
+        }
     </style>
 </head>
 
 <body>
-    <label for="">台幣</label>
-    <input type="number" placeholder="請輸入台幣" id="TWD">
-    <label for="">美金</label>
-    <input type="number" placeholder="請輸入美金" id="USD">
+    <div class="exchange">
+        <label for="">台幣</label>
+        <input type="number" placeholder="請輸入台幣" id="TWD">
+        <label for="">美金</label>
+        <input type="number" placeholder="請輸入美金" id="USD">
+    </div>
+    <div class="temperature">
+        <label for="">攝氏</label>
+        <input type="number" placeholder="請輸入攝氏溫度" id="C">
+        <label for="">華氏</label>
+        <input type="number" placeholder="請輸入華氏溫度" id="F">
+    </div>
 
     <script>
         const TWD = document.querySelector('#TWD');
@@ -30,6 +60,17 @@
             TWD.value = (usd * exchangeRate).toFixed(0);
         })
 
+        const temC = document.querySelector('#C');
+        const temF = document.querySelector('#F');
+
+        temC.addEventListener('input', () => {
+            const temc = C.value;
+            F.value = (temc * 9 / 5 + 32).toFixed(1);
+        })
+        temF.addEventListener('input', () => {
+            const temf = F.value;
+            C.value = ((temf - 32) * 5 / 9).toFixed(1);
+        })
     </script>
 </body>
 

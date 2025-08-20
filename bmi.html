@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bmi {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+        }
+
+        #height,
+        #weight {
+            margin-bottom: 1rem;
+            height: 1.5rem;
+            border-radius: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bmi">
+        <label for="">身高</label>
+        <input type="number" placeholder="請輸入公分" id="height">
+        <label for="">體重</label>
+        <input type="number" placeholder="請輸入公斤" id="weight">
+        <label for="">BMI值</label>
+        <input type="text" id="data">
+    </div>
+
+    <script>
+        const Height = document.querySelector('#height');
+        const Weight = document.querySelector('#weight');
+        const Data = document.querySelector('#data');
+        Height.addEventListener('input', () => {
+            Height.value = (Height / 100).toFixed(2);
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 電影票
+        const hours = new Date().getHours();
+        console.log(hours)
+        if (hours <= 11) {
+            console.log('早場票250元');
+        } else {
+            console.log('票價300元');
+        }
+
+        // 數字比較
+        // const num1 = +window.prompt('請輸入數字1', 0);
+        // const num2 = +window.prompt('請輸入數字2', 0);
+        // if (num1 > num2) {
+        //     console.log('num1數字比較大');
+        // } else {
+        //     console.log('num2數字比較大');
+        // }
+        // console.log(typeof +num1);
+
+
+        // 三個數字比大小
+        // const num1 = +window.prompt('請輸入數字1', 0);
+        // const num2 = +window.prompt('請輸入數字2', 0);
+        // const num3 = +window.prompt('請輸入數字3', 0);
+        // if (num1 > num2 && num1 > num3) {
+        //     console.log(`num1,${num1}數字最大`);
+        // } else if (num2 > num3 && num2 > num3) {
+        //     console.log(`num2,${num2}數字最大`);
+        // } else {
+        //     console.log(`num3,${num3}數字最大`);
+        // }
+
+        // 多項選擇結構switch
+        const zip = '106';
+        let district = '';
+        switch (zip) {
+            case 100:
+                district = '中正區';
+            case 106:
+                district = '大安區';
+            default:
+                discrict = '查無此郵遞區號'
+        }
+        console.log(zip);
+
+        const newDay = new Date().getDay();
+        let twNewDay = '';
+        switch (newDay) {
+            case 0:
+                twNewDay = '星期日';
+                break;
+            case 1:
+                twNewDay = '星期一';
+                break;
+            case 2:
+                twNewDay = '星期二';
+                break;
+            case 3:
+                twNewDay = '星期三';
+                break;
+            case 4:
+                twNewDay = '星期四';
+                break;
+            case 5:
+                twNewDay = '星期五';
+                break;
+            case 6:
+                twNewDay = '星期六';
+                break;
+            // default:
+            //     twNewDay = '無此日期'
+        }
+        console.log(twNewDay);
+
+        // for迴圈 列出1~1000不能被2及3整除的數字
+        for (let i = 0; i <= 1000; i++) {
+            if (i % 2 !== 0 && i % 3 !== 0) {
+                console.log(i)
+            }
+        }
+
+        // while
+        let x = 1;
+        let sum = 0;
+        while (x <= 100) {
+            sum = sum + x;
+            x++;
+        }
+        console.log(sum);
+
+        let y = 0;
+        while (y <= 10) {
+            y++;
+            if (y % 2 !== 0)
+                continue;
+            console.log(y);
+        }
+
+    </script>
+</body>
+
+</html>

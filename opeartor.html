@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 算術運算子
+        let a = 10;
+        // let b = 10 * a++;
+        let b = 10 * ++a;
+        console.log(`a=${a},b=${b}`);
+
+        //比較運算子
+        console.log(10 == '10');  //true
+        console.log(10 === '10'); //false
+        console.log('a' > 'b'); //false
+        console.log('a'.charCodeAt()); //97 
+        console.log('b'.charCodeAt()); //98
+        console.log('a' > '5'); //true
+        console.log('5'.charCodeAt()); //53
+        console.log('a' > 5); //false，a隱含轉型為數值，會得到NaN
+        console.log(undefined == null); //true，轉成boolean值皆為0
+        console.log(undefined === null); //false
+
+        // logical operator
+        // || shortcut  是為了給預設值
+        let userName = 'Tom';
+        console.log(userName || 'guest');  //userName 如果 true，結果一定是true，後面的程式就不需要執行了
+
+
+
+        const user = { "userName": "Jack", "age": 30, contact: { "phone": "0911222333", "email": "jack@gmail.com" } };
+        console.log(user.userName); //Jack
+        console.log(user.age); //30
+        console.log(user.contact); //{phone: '0911222333', email: 'jack@gmail.com'}
+        console.log(user.contact && user.contact.phone); //0911222333
+        console.log(user.contact && user.contact.email); //jack@gmail.com
+
+        const user1 = { "userName": "Tom", "age": 30 };
+        //console.log(user1.contact.email); //Uncaught TypeError: Cannot read properties of undefined (reading 'email')
+        //&& shortcut 用來檢查資料是否存在
+        console.log(user1.contact && user1.contact.email);
+        console.log(user1.userName);
+
+        // 三元運算子
+        let isLogin = true;
+        console.log(isLogin ? '登出' : '請先登入')
+
+        if (isLogin) {
+            console.log('登出');
+        } else {
+            console.log('請先登入');
+        }
+    </script>
+</body>
+
+</html>

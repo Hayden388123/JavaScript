@@ -39,14 +39,32 @@
         console.log(gender);
 
         // 兩個數字相加
-        const year = window.prompt('請輸入1911', 1911);
-        const twyear = window.prompt('請輸入民國出生年份', 0);
-        console.log(Number(year) + Number(twyear));
+        // const year = window.prompt('請輸入1911', 1911);
+        // const twyear = window.prompt('請輸入民國出生年份', 0);
+        // console.log(Number(year) + Number(twyear));
 
         // 兩個數字交換
         let x = 10;
         let y = 20;
-        console.log(String(y), String(x));
+        [y, x] = [x, y];
+        console.log(`x=${x},y=${y}`);
+
+        // 明確型別轉換
+        console.log(parseInt("10", 10));  //10
+        console.log(parseInt("1A", 10));  //1
+        console.log(parseInt("1A", 16));  //26
+        console.log(parseInt("21A", 16)); //538
+        console.log(parseInt("15.6", 10)); //15
+        console.log(parseInt("A1", 10));   //NaN
+
+        // 隱含型別轉換
+        console.log(typeof (10 + ""));  //string
+        console.log(typeof "10");    //string
+        console.log(typeof +"10");  //number
+        console.log(typeof 0);      //number
+        console.log(typeof !0);     //boolean
+        console.log(!0);           //true
+        console.log(!!0);          //false
     </script>
 </body>
 
