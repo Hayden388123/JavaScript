@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math game</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .game {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(161, 169, 243);
+            padding: 1rem;
+        }
+
+        #number,
+        #btn {
+            width: 50%;
+            margin-bottom: 1rem;
+            border-radius: 1rem;
+            height: 2rem;
+            text-align: center;
+        }
+
+        #answer {
+            background-color: white;
+            width: 60%;
+            height: 3rem;
+            border-radius: 1rem;
+            font-size: 1rem;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="game">
+        <label for="">猜數字</label>
+        <input type="number" placeholder="請輸入1-100內的數字" id="number">
+        <button id="btn">送出</button>
+        <label for="">答案</label>
+        <div id="answer"></div>
+    </div>
+
+    <script>
+        const Num = document.querySelector('#number');
+        const Btn = document.querySelector('#btn');
+        const Answer = document.querySelector('#answer');
+        const myrandom = Math.floor(Math.random() * 100) + 1;
+        Btn.addEventListener('click', () => {
+            let myNumber = parseInt(Num.value);
+            if (isNaN(myNumber) || myNumber < 1 || myNumber > 100) {
+                Answer.textContent = '請輸入 1 ~ 100 的數字';
+            } else if (myNumber > myrandom) {
+                Answer.textContent = '數字太大'
+            } else if (myNumber < myrandom) {
+                Answer.textContent = '數字太小'
+            } else {
+                Answer.textContent = `正確答案為${myrandom}，恭喜答對!`
+            }
+        })
+    </script>
+</body>
+
+</html>

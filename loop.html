@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="div1"></div>
+
+    <script>
+        // for迴圈 列出1~1000不能被2及3整除的數字
+        for (let i = 0; i <= 1000; i++) {
+            if (i % 2 !== 0 && i % 3 !== 0) {
+                console.log(i)
+            }
+        }
+
+        // while
+        let x = 1;
+        let sum = 0;
+        while (x <= 100) {
+            sum = sum + x;
+            x++;
+        }
+        console.log(sum);
+
+        let y = 0;
+        while (y <= 10) {
+            y++;
+            if (y % 2 !== 0) {
+                continue;
+            }
+            console.log(y);
+        }
+
+        // 用 for 迴圈讀取陣列中的資料
+
+        // for (let i = 0, max = scores.length; i < max; i++) {
+        //     console.log(scores[i]);
+        // }
+
+        // for...of
+        const scores = [79, 65, 83, 91]
+        let maxScore = scores[0]
+        for (let score of scores) {
+            if (score > maxScore) {
+                maxScore = score;
+            }
+        }
+        const mydiv = document.querySelector('.div1');
+        mydiv.textContent = `最大分數是:${maxScore}`;
+
+
+        //讀陣列中的所有資料使用 for...of 不能讀物件
+        //讀物件中的所有資料使用 for...in 
+        const member = { 'name': 'Hayden', 'mail': 'Hayden388123@gmail.com' };
+        for (let item in member) {
+            console.log(item);
+            console.log(member[item]);
+        }
+
+        // 陣列中放物件使用for...of
+        const students = [
+            { 'name': 'Jack', 'score': '79' },
+            { 'name': 'Mary', 'score': '83' },
+            { 'name': 'Tom', 'score': '72' },
+            { 'name': 'Hayden', 'score': '91' }
+        ]
+        let maxScoreStudent = students[0];
+        for (let student of students) {
+            if (student.score > maxScoreStudent.score) {
+                maxScoreStudent = student;
+            }
+
+        }
+        console.log(`分數最高的學生是:${maxScoreStudent.name}, 分數是:${maxScoreStudent.score}`);
+    </script>
+</body>
+
+</html>

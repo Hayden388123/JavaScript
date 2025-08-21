@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BMI</title>
     <style>
         .bmi {
             display: flex;
@@ -27,6 +27,7 @@
         <input type="number" placeholder="請輸入公分" id="height">
         <label for="">體重</label>
         <input type="number" placeholder="請輸入公斤" id="weight">
+        <button id="calcBtn">計算 BMI</button>
         <label for="">BMI值</label>
         <input type="text" id="data">
     </div>
@@ -35,8 +36,24 @@
         const Height = document.querySelector('#height');
         const Weight = document.querySelector('#weight');
         const Data = document.querySelector('#data');
-        Height.addEventListener('input', () => {
-            Height.value = (Height / 100).toFixed(2);
+        const Btn = document.querySelector('#calcBtn');
+        Btn.addEventListener('click', () => {
+            let h = parseFloat(Height.value) / 100;
+            let w = parseFloat(Weight.value);
+            let bmi = (w / (h * h)).toFixed(2);
+            if (bmi < 18.5) {
+                Data.value = `${bmi},過輕`;
+            } else if (bmi >= 18.5 && bmi <= 24) {
+                Data.value = `${bmi},正常`;
+            } else if (bmi >= 24 && bmi <= 27) {
+                Data.value = `${bmi},過重`;
+            } else if (bmi >= 27 && bmi <= 30) {
+                Data.value = `${bmi},輕度肥胖`;
+            } else if (bmi >= 30 && bmi <= 35) {
+                Data.value = `${bmi},中度肥胖`;
+            } else if (bmi >= 35) {
+                Data.value = `${bmi},重度肥胖`;
+            }
         })
     </script>
 </body>
