@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label>電子郵件:</label>
+    <input type="text" id="mail">
+    <button id="checkBtn">檢查</button>
+    <div id="Msg"></div>
+
+    <label>圖檔上傳:</label>
+    <input type="text" id="file">
+    <div id="Message"></div>
+    <script>
+
+        // 電子郵件檢查
+        const Email = document.querySelector('#mail');
+        const Check = document.querySelector('#checkBtn')
+        const divMsg = document.querySelector('#Msg')
+        Check.addEventListener('click', () => {
+            let email = Email.value;
+            if (checkMail(email)) {
+                divMsg.textContent = 'Email格式正確';
+            } else {
+                divMsg.textContent = 'Email格式錯誤';
+            }
+        })
+
+        const checkMail = mail => {
+            let isValid = true;
+            //檢查
+            if (!mail.includes('@')) {
+                isValid = false;
+            } else if (mail.indexOf('@') === 0 || mail.indexOf('@') === mail.length - 1) {
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // 檔案格式檢查
+        const myFile = document.querySelector('#file');
+        const divMessage = document.querySelector('#Message');
+        myFile.addEventListener('blur', () => {
+            let files = myFile.value;
+            if (checkfile(files)) {
+                divMessage.textContent = "是圖檔";
+            } else {
+                divMessage.textContent = "請輸入圖檔";
+            }
+
+        })
+
+        const checkfile = files => {
+            const checkFile = ['jpg', 'png', 'webp'];
+            const extensions = files.split('.')[1].trim().toLowerCase();
+            return checkFile.includes(extensions);
+        }
+
+        // RegExp物件
+        const re = /^[a-zA-Z]{1}[1-2]{1}\d{8}$/;
+        console.log(re.test('1234567890'));  //false
+        console.log(re.test('A123456789')); //true
+        console.log(re.test('B33456789'));  //false
+    </script>
+</body>
+
+</html>

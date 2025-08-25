@@ -8,10 +8,13 @@
 </head>
 
 <body>
-
+    <script src="./scripts/main.js"></script>
     <script>
         // 溫度轉換
-        function temperature(degree, type) {
+        //function temperature(degree, type) 函式宣告式
+
+        //函式表達式
+        let temperature = function (degree, type) {
             let result;
             if (type === 'C') {
                 result = (degree * (9 / 5) + 32)
@@ -22,6 +25,9 @@
         }
         console.log(temperature(0, 'C'));
         console.log(temperature(32, 'F'));
+
+        console.log(max(1, 3));
+        console.log(maxNum(1, 2, 3, 4, 5, 6));
     </script>
 </body>
 
