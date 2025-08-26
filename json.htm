@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="ul" class="table"></ul>
+    <div class="row">
+        <div class="col-8">
+            <table id="tableData" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>名字</th>
+                        <th>年資</th>
+                        <th>薪水</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-4">
+            <div>
+                <input type="text" placeholder="姓名" id="inputName" class="form-control m-2" />
+            </div>
+            <div>
+                <input type="text" placeholder="年資" id="inputYear" class="form-control m-2" />
+            </div>
+            <div>
+                <input type="text" placeholder="薪水" id="inputSalary" class="form-control m-2" />
+            </div>
+            <div>
+                <button class="btn btn-primary  m-2" id="buttonAdd">新增</button>
+            </div>
+        </div>
+        <script>
+            const ulName = document.querySelector('#ul');
+            const tableDatas = document.querySelector('#tableData');
+            const inpName = document.querySelector('#inputName');
+            const inpYear = document.querySelector('#inputYear');
+            const inpSalary = document.querySelector('#inputSalary');
+            const btnAdd = document.querySelector('#buttonAdd');
+
+            //Json
+            const emps = [
+                { "name": "Tom", "workYears": 3, "salary": 35000 },
+                { "name": "Jack", "workYears": 5, "salary": 40000 },
+                { "name": "Mary", "workYears": 7, "salary": 45000 }
+            ];
+            emps.forEach(emp => {
+                //emp => {"name":"Tom","workYears":3,"salary":35000}
+                //console.log(emp.name);
+                const { name, workYears, salary } = emp;
+                console.log(name);
+                console.log(workYears);
+                console.log(salary);
+            })
+            btnAdd.addEventListener('click', () => {
+                const emp = { "name": inpName.value, "workYears": inpYear.value, "salary": inpSalary.value };
+                console.log(emp);
+                //加到 emps 陣列中
+                emps.push(emp);
+                //儲存JSON資料
+                localStorage.setItem("emps", JSON.stringify(emps)); //JSON.stringify 物件轉字串
+                //讀出資料
+                // const datas = JSON.parse(localStorage.getItem("emps"));
+            })
+
+
+
+
+
+
+            //名字顯示在ul中
+            const lis = emps.map(emp => {
+                return `<li>${emp.name}</li>`
+            })
+            ulName.innerHTML = lis.join('');
+
+            //資料顯示在table中
+            const table = emps.map(emp => {
+                return `<tr>
+                <td>${emp.name}</td>
+                <td>${emp.workYears}</td>
+                <td>${emp.salary}</td>
+            </tr>`
+            })
+            tableDatas.innerHTML = table.join('');
+
+            const emp = {
+                "employees": [
+                    { "name": "Tom", "workYears": 3, "salary": 35000 },
+                    { "name": "Jack", "workYears": 5, "salary": 40000 },
+                    { "name": "Mary", "workYears": 7, "salary": 45000 }
+                ]
+            };
+            emp.employees.forEach(emp => {
+                const { name, workYears, salary } = emp;
+                console.log(name);
+                console.log(workYears);
+                console.log(salary);
+            })
+        </script>
+</body>
+
+</html>

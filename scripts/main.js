@@ -40,3 +40,12 @@ const maxNum = (...nums) => {
     }
     return max1;
 }
+
+const checkPhone = phone => {
+    //0911-222-333
+    const re = /^09\d{2}-\d{3}-\d{3}$/;
+    return re.test(phone);
+
+}
+export { calcBMI, max, checkPhone };
+export default maxNum;

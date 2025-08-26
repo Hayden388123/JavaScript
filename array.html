@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const sexaul = ['top', 'bottom', 'switch'];
+        console.log(`陣列數量:${sexaul.length}`);
+        // delete sexaul[0];
+        // console.log(`${sexaul}`);
+        // console.log(`符號串接:${sexaul.join('-')}`);
+        // console.log(`反轉+符號串接:${sexaul.reverse().join('-')}`);
+        // console.log(`排列${sexaul.sort()}`);
+        sexaul.splice(1, 0, 'exclusive', 'official')
+        console.log(sexaul)  //['top', 'exclusive','official' 'bottom', 'switch']
+
+
+
+        //數字陣列排序
+        const array1 = ['5', '28', '1', '36'];
+        // console.log(`數字字串排列${array1.sort()}`);  //1,28,36,5
+        // console.log(`數字順序排列${array1.sort((a, b) => a - b)}`);  //1,5,28,36
+        // console.log(`數字順序排列${array1.sort((a, b) => b - a)}`);  //36,28,5,1
+
+        //forEach逐一讀出陣列
+        array1.forEach(item => console.log(item));
+
+        //filter篩選
+        const data = array1.filter(item => {
+            if (item % 2 === 0) {
+                return item;
+            }
+        })
+        console.log(data);
+
+        //map加工
+        const datas = array1.map(item => item * 2)
+        console.log(datas);
+    </script>
+</body>
+
+</html>
